@@ -1,3 +1,4 @@
+// const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const generateToken = require('../config/generateJWT');
 const User = require('../models/userModel');
@@ -20,20 +21,20 @@ const registerUser = () =>
     }
 
     //Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(password, salt);
 
     //Create user
     const user = await User.create({
       name,
       email,
-      password: hashedPassword,
+      password,
       pic,
     });
 
     if (user) {
       res.status(201).json({
-        _id: user.id,
+        _id: user._id,
         name: user.name,
         email: user.email,
         pic: user.pic,

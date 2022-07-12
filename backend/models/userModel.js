@@ -17,7 +17,6 @@ const userSchema = mongoose.Schema(
     },
     pic: {
       type: String,
-
       default:
         'https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg',
     },
@@ -27,7 +26,7 @@ const userSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+// const User = mongoose.model('User', userSchema);
+// module.exports = User;
 
-//module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model('User', userSchema);
